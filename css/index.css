@@ -1,8 +1,14 @@
+/* - - - - - V A R I A B L E S - - - - - */
 :root{
 	--gap: 20px;
 	--padding: 10px;
+	--radius: 5px;
+	--icon: 2rem;
+
+	--blue: rgb(0, 10, 90);
 }
 
+/* - - - - - S T Y L E S - - - - - */
 body{
 	display: flex;
 	flex-direction: column;
@@ -10,15 +16,21 @@ body{
 	padding: var(--padding);
 	gap: var(--gap);
 	justify-content: space-between;
+	background-color: var(--blue);
+	color: white;
 }
 
 textarea{
 	resize: none;
-	padding: var(--padding);
+	padding: calc(var(--padding) + var(--icon));
 	outline: none;
+	border: none;
 }
 input[type="button"]{
-	height: 2rem;
+	height: var(--icon);
+	border-radius: 0;
+	border: none;
+	background-color: white;
 }
 
 main{
@@ -26,6 +38,8 @@ main{
 	flex-grow: 1;
 	width: 100%;
 	max-height: 700px;
+	border-radius: var(--radius);
+	overflow: hidden;
 }
 main #leftbox, main #rightbox{
 	flex: 1;
@@ -38,7 +52,11 @@ main #leftbox{
 						 "encrypt  decrypt";
 }
 main #leftbox #lefttext{
+	background-color: transparent;
 	grid-area: lefttext;
+}
+main #lefttext{
+	color: white;
 }
 main #leftbox #encrypt{
 	grid-area: encrypt;
@@ -69,4 +87,11 @@ main #rightbox #copy{
 	top: var(--padding);
 	background-image: url("../assets/icons/copy.svg");	
 	aspect-ratio: 1;
+}
+
+/* - - - - - R E S P O N S I V E - - - - - */
+@media screen and (max-width: 600px){
+	main{
+		flex-direction: column;
+	}
 }
