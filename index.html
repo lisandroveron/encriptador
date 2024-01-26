@@ -4,13 +4,25 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="icon" type="image/x-icon" href="assets/icons/favicon.svg">
 	<title>Encriptador</title>
 </head>
 <body>
-	<header></header>
-	<main></main>
-	<footer></footer>
+	<header><h1>Encriptador</h1></header>
+	<main>
+		<div id="leftbox">
+			<textarea id="lefttext"></textarea>
+			<input id="encrypt" type="button" value="Encriptar">
+			<input id="decrypt" type="button" value="Desencriptar">
+		</div>
+		<div id="rightbox">
+			<textarea id="righttext" readonly></textarea>
+			<input id="copy" class="button" type="button">
+		</div>
+	</main>
+	<footer><p>Lisandro Verón | 2024</p></footer>
+	<script type="text/javascript" src="js/index.js"></script>
 	<noscript>Debes habilitar JavaScript para usar esta página.</noscript>
 </body>
 </html>
