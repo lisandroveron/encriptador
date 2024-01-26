@@ -5,6 +5,7 @@
 	--radius: 5px;
 	--icon: 2rem;
 
+	--light-blue: rgb(54, 73, 216);
 	--blue: rgb(0, 10, 90);
 }
 
@@ -87,6 +88,11 @@ main #rightbox #copy{
 	top: var(--padding);
 	background-image: url("../assets/icons/copy.svg");	
 	aspect-ratio: 1;
+}
+#encrypt:hover, #decrypt:hover{
+	background-color: var(--light-blue);
+	color: white;
+	transition: .5s ease;
 }
 
 /* - - - - - R E S P O N S I V E - - - - - */
