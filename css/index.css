@@ -113,6 +113,7 @@ main #rightbox #buttons #clear{
 	position: absolute;
 	top: -50%;
 	transition: 2s linear;
+	text-align: center;
 }
 .notification--on{
 	top: 1%;
@@ -132,7 +133,6 @@ main #rightbox #buttons #clear{
 	text-align: center;
 	padding: calc(var(--padding) + var(--icon));
 	padding-top: 0;
-/*	flex: 1;*/
 	flex-basis: 25%;
 }
 #textnotfound span{
