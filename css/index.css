@@ -6,6 +6,7 @@
 	--icon: 2rem;
 
 	--light-blue: rgb(54, 73, 216);
+	--light-green: rgb(36, 153, 48);
 	--blue: rgb(0, 10, 90);
 }
 
@@ -19,6 +20,7 @@ body{
 	justify-content: space-between;
 	background-color: var(--blue);
 	color: white;
+	position: relative;
 }
 
 textarea{
@@ -88,6 +90,18 @@ main #rightbox #copy{
 	top: var(--padding);
 	background-image: url("../assets/icons/copy.svg");	
 	aspect-ratio: 1;
+}
+.textcopied--off{
+	background-color: var(--light-green);
+	padding: var(--padding) calc(var(--padding) * 2);
+	border-radius: calc(var(--radius) * 5);
+	position: absolute;
+	top: -50%;
+	transition: 1s ease;
+}
+.textcopied--on{
+	top: 1%;
+	transition: .5s ease;
 }
 #encrypt:hover, #decrypt:hover{
 	background-color: var(--light-blue);

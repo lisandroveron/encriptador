@@ -3,7 +3,7 @@ let processed = document.getElementById("righttext");
 let encryptButton = document.getElementById("encrypt");
 let decryptButton = document.getElementById("decrypt");
 let copyButton = document.getElementById("copy");
-
+let textcopied = document.getElementById("textcopied");
 const imgURL = processed.style.backgroundImage;
 
 function encrypt(message) {
@@ -50,16 +50,21 @@ encryptButton.onclick = () => {
 	let encrypted = encrypt(message.value)
 	processed.value = encrypted;
 	processed.style.backgroundImage = encrypted ? "none" : imgURL;
-	copy.style.display = encrypted ? "block" : "none";
+	copyButton.style.display = encrypted ? "block" : "none";
 };
 
 decryptButton.onclick = () => {
 	let decrypted = decrypt(message.value)
 	processed.value = decrypted;
 	processed.style.backgroundImage = decrypted ? "none" : imgURL;
-	copy.style.display = decrypted ? "block" : "none";
+	copyButton.style.display = decrypted ? "block" : "none";
 };
 
 copyButton.onclick = () => {
-	navigator.clipboard.writeText(processed.value);
+	navigator.clipboard.writeText(processed.value).then(() => {
+		textcopied.classList.toggle("textcopied--on");
+		setTimeout(() => {
+			textcopied.classList.toggle("textcopied--on")
+		}, 2000);
+	});
 };
