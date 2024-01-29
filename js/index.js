@@ -4,6 +4,7 @@ let encryptButton = document.getElementById("encrypt");
 let decryptButton = document.getElementById("decrypt");
 let copyButton = document.getElementById("copy");
 let textcopied = document.getElementById("textcopied");
+let textnotfound = document.getElementById("textnotfound");
 const imgURL = processed.style.backgroundImage;
 
 function encrypt(message) {
@@ -51,6 +52,7 @@ encryptButton.onclick = () => {
 	processed.value = encrypted;
 	processed.style.backgroundImage = encrypted ? "none" : imgURL;
 	copyButton.style.display = encrypted ? "block" : "none";
+	textnotfound.style.display = encrypted ? "none" : "block";
 };
 
 decryptButton.onclick = () => {
@@ -58,6 +60,7 @@ decryptButton.onclick = () => {
 	processed.value = decrypted;
 	processed.style.backgroundImage = decrypted ? "none" : imgURL;
 	copyButton.style.display = decrypted ? "block" : "none";
+	textnotfound.style.display = decrypted ? "none" : "block";
 };
 
 copyButton.onclick = () => {
