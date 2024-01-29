@@ -2,7 +2,9 @@ let message = document.getElementById("lefttext");
 let processed = document.getElementById("righttext");
 let encryptButton = document.getElementById("encrypt");
 let decryptButton = document.getElementById("decrypt");
+let buttons = document.getElementById("buttons");
 let copyButton = document.getElementById("copy");
+let clearButton = document.getElementById("clear");
 let textcopied = document.getElementById("textcopied");
 let textnotfound = document.getElementById("textnotfound");
 let rulesadvice = document.getElementById("rulesadvice");
@@ -48,14 +50,22 @@ function decrypt(message) {
 	return decrypted;
 };
 
-function toggle(element){
+function clear() {
+	message.value = "";
+	processed.value = "";
+	processed.style.backgroundImage = imgURL;
+	textnotfound.style.display = "block";
+	buttons.style.display = "none";
+};
+
+function toggle(element) {
 	element.classList.toggle("notification--on");
 	setTimeout(() => {
 		element.classList.toggle("notification--on")
 	}, 5000);
 };
 
-function verify(text, mode){
+function verify(text, mode) {
 	let error = text.match(/[^a-z0-9]/g);
 	if (error) {
 		toggle(rulesadvice);
@@ -71,7 +81,7 @@ function verify(text, mode){
 
 	processed.value = result;
 	processed.style.backgroundImage = result ? "none" : imgURL;
-	copyButton.style.display = result ? "block" : "none";
+	buttons.style.display = result ? "flex" : "none";
 	textnotfound.style.display = result ? "none" : "block";
 };
 
@@ -87,4 +97,12 @@ copyButton.onclick = () => {
 	navigator.clipboard.writeText(processed.value).then(() => {
 		toggle(textcopied);
 	});
+};
+
+clearButton.onclick = () => {
+	clear();
+};
+
+window.onload = () => {
+	clear();
 };
