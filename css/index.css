@@ -7,6 +7,8 @@
 
 	--light-blue: rgb(54, 73, 216);
 	--light-green: rgb(36, 153, 48);
+	--light-red: rgb(216, 54, 54);
+
 	--blue: rgb(0, 10, 90);
 }
 
@@ -96,22 +98,26 @@ main #rightbox #copy{
 	background-image: url("../assets/icons/copy.svg");	
 	aspect-ratio: 1;
 }
-.textcopied--off{
-	background-color: var(--light-green);
+.notification--off{
 	padding: var(--padding) calc(var(--padding) * 2);
 	border-radius: calc(var(--radius) * 5);
 	position: absolute;
 	top: -50%;
-	transition: 1s ease;
+	transition: 2s linear;
 }
-.textcopied--on{
+.notification--on{
 	top: 1%;
-	transition: .5s ease;
+}
+#textcopied{
+	background-color: var(--light-green);
+}
+#rulesadvice{
+	background-color: red;
 }
 #encrypt:hover, #decrypt:hover{
 	background-color: var(--light-blue);
 	color: white;
-	transition: .5s ease;
+	transition: .5s;
 }
 #textnotfound{
 	text-align: center;

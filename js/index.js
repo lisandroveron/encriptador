@@ -5,6 +5,7 @@ let decryptButton = document.getElementById("decrypt");
 let copyButton = document.getElementById("copy");
 let textcopied = document.getElementById("textcopied");
 let textnotfound = document.getElementById("textnotfound");
+let rulesadvice = document.getElementById("rulesadvice");
 const imgURL = processed.style.backgroundImage;
 
 function encrypt(message) {
@@ -47,10 +48,17 @@ function decrypt(message) {
 	return decrypted;
 };
 
+function toggle(element){
+	element.classList.toggle("notification--on");
+	setTimeout(() => {
+		element.classList.toggle("notification--on")
+	}, 5000);
+};
+
 function verify(text, mode){
 	let error = text.match(/[^a-z0-9]/g);
 	if (error) {
-		alert("Contiene mayúsculas o caracteres especiales");
+		toggle(rulesadvice);
 		return;
 	};
 
@@ -77,9 +85,6 @@ decryptButton.onclick = () => {
 
 copyButton.onclick = () => {
 	navigator.clipboard.writeText(processed.value).then(() => {
-		textcopied.classList.toggle("textcopied--on");
-		setTimeout(() => {
-			textcopied.classList.toggle("textcopied--on")
-		}, 2000);
+		toggle(textcopied);
 	});
 };
