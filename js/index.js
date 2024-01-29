@@ -47,20 +47,32 @@ function decrypt(message) {
 	return decrypted;
 };
 
+function verify(text, mode){
+	let error = text.match(/[^a-z0-9]/g);
+	if (error) {
+		alert("Contiene mayúsculas o caracteres especiales");
+		return;
+	};
+
+	let result;
+	switch (mode) {
+		case "encrypt": result = encrypt(text); break;
+		case "decrypt": result = decrypt(text); break;
+		default: break;
+	};
+
+	processed.value = result;
+	processed.style.backgroundImage = result ? "none" : imgURL;
+	copyButton.style.display = result ? "block" : "none";
+	textnotfound.style.display = result ? "none" : "block";
+};
+
 encryptButton.onclick = () => {
-	let encrypted = encrypt(message.value)
-	processed.value = encrypted;
-	processed.style.backgroundImage = encrypted ? "none" : imgURL;
-	copyButton.style.display = encrypted ? "block" : "none";
-	textnotfound.style.display = encrypted ? "none" : "block";
+	verify(message.value, "encrypt");
 };
 
 decryptButton.onclick = () => {
-	let decrypted = decrypt(message.value)
-	processed.value = decrypted;
-	processed.style.backgroundImage = decrypted ? "none" : imgURL;
-	copyButton.style.display = decrypted ? "block" : "none";
-	textnotfound.style.display = decrypted ? "none" : "block";
+	verify(message.value, "decrypt");
 };
 
 copyButton.onclick = () => {
