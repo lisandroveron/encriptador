@@ -1,9 +1,9 @@
 /* - - - - - V A R I A B L E S - - - - - */
 :root{
 	--gap: 20px;
+	--icon: 2rem;
 	--padding: 10px;
 	--radius: 5px;
-	--icon: 2rem;
 
 	--light-blue: rgb(54, 73, 216);
 	--light-green: rgb(36, 153, 48);
@@ -14,106 +14,36 @@
 
 /* - - - - - S T Y L E S - - - - - */
 body{
-	display: flex;
-	flex-direction: column;
 	align-items: center;
-	padding: var(--padding);
-	gap: var(--gap);
-	justify-content: space-between;
 	background-color: var(--blue);
 	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap);
+	justify-content: space-between;
+	padding: var(--padding);
 	position: relative;
 }
-
 textarea{
-	resize: none;
-	padding: calc(var(--padding) + var(--icon));
-	outline: none;
-	border: none;
 	background-color: transparent;
+	border: none;
+	outline: none;
+	padding: calc(var(--padding) + var(--icon));
+	resize: none;
 	width: 100%;
 }
-input[type="button"]{
-	height: var(--icon);
+.button{
 	border-radius: 0;
 	border: none;
-	background-color: white;
-}
-
-main{
-	display: flex;
-	flex-grow: 1;
-	width: 100%;
-	max-height: 700px;
-	border-radius: var(--radius);
-	overflow: hidden;
-}
-main #leftbox, main #rightbox{
-	flex: 1;
-}
-main #leftbox{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr auto auto;
-	grid-template-areas: "lefttext lefttext"
-						 "encrypt  decrypt";
-}
-main #leftbox #lefttext{
-	grid-area: lefttext;
-}
-main #lefttext{
-	color: white;
-}
-main #leftbox #encrypt{
-	grid-area: encrypt;
-}
-main #leftbox #decrypt{
-	grid-area: decrypt;
-}
-main #leftbox #advice{
-	grid-area: advice;
-}
-main #rightbox{
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	background-color: white;
-	color: black;
-}
-main #rightbox #righttext{
-	background-image: url("../assets/images/nottext.svg");
-	background-position: center;
-	background-size: auto;
-	background-repeat: no-repeat;
-	flex-grow: 1;
-	padding-bottom: 0;
-}
-main #rightbox #buttons > *{
-	background-size: contain;
-	background-repeat: no-repeat;
-	aspect-ratio: 1;
-}
-main #rightbox #buttons #copy{
-	background-image: url("../assets/icons/copy.svg");	
-}
-main #rightbox #buttons #clear{
-	background-image: url("../assets/icons/clear.svg");
-}
-#buttons{
-	gap: var(--gap);
-	position: absolute;
-	display: none;
-	right: var(--padding);
-	top: var(--padding);
-	flex-direction: column;
+	height: var(--icon);
 }
 .notification--off{
-	padding: var(--padding) calc(var(--padding) * 2);
 	border-radius: calc(var(--radius) * 5);
+	padding: var(--padding) calc(var(--padding) * 2);
 	position: absolute;
+	text-align: center;
 	top: -50%;
 	transition: 2s linear;
-	text-align: center;
 }
 .notification--on{
 	top: 1%;
@@ -124,20 +54,98 @@ main #rightbox #buttons #clear{
 #rulesadvice{
 	background-color: red;
 }
-#encrypt:hover, #decrypt:hover{
+
+main{
+	border-radius: var(--radius);
+	display: flex;
+	flex-grow: 1;
+	max-height: 700px;
+	overflow: hidden;
+	width: 100%;
+}
+main .button{
+	background-color: white;
+}
+main #leftbox, main #rightbox{
+	flex: 1;
+}
+main #leftbox{
+	display: grid;
+	grid-template-areas: "lefttext lefttext"
+						 "encrypt  decrypt";
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr auto auto;
+}
+main #leftbox #lefttext{
+	color: white;
+	grid-area: lefttext;
+}
+main #leftbox #encrypt{
+	grid-area: encrypt;
+}
+main #leftbox #decrypt{
+	grid-area: decrypt;
+}
+main #leftbox #advice{
+	grid-area: advice;
+}
+main #encrypt:hover, main #decrypt:hover{
 	background-color: var(--light-blue);
 	color: white;
 	transition: .5s;
 }
-#textnotfound{
-	text-align: center;
-	padding: calc(var(--padding) + var(--icon));
-	padding-top: 0;
-	flex-basis: 25%;
+main #rightbox{
+	background-color: white;
+	color: black;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
-#textnotfound span{
-	font-weight: bold;
+main #rightbox #righttext{
+	background-image: url("../assets/images/nottext.svg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto;
+	flex-grow: 1;
+	padding-bottom: 0;
+}
+main #rightbox #buttons > *{
+	aspect-ratio: 1;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+main #rightbox #buttons #copy{
+	background-image: url("../assets/icons/copy.svg");	
+}
+main #rightbox #buttons #clear{
+	background-image: url("../assets/icons/clear.svg");
+}
+main #rightbox #buttons{
+	display: none;
+	flex-direction: column;
+	gap: var(--gap);
+	position: absolute;
+	right: var(--padding);
+	top: var(--padding);
+}
+main #rightbox #textnotfound{
+	flex-basis: 25%;
+	padding-top: 0;
+	padding: calc(var(--padding) + var(--icon));
+	text-align: center;
+}
+main #rightbox #textnotfound span{
 	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+footer{
+	align-items: center;
+	display: flex;
+	gap: var(--gap);
+}
+footer .button{
+	height: 1.5rem;
 }
 
 /* - - - - - R E S P O N S I V E - - - - - */

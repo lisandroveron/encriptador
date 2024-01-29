@@ -10,13 +10,23 @@
 </head>
 <body>
 	<p id="textcopied" class="notification--off">¡Texto copiado!</p>
-	<p id="rulesadvice" class="notification--off">El texto no debe contener mayúsculas ni caracteres especiales.</p>
+	<p id="rulesadvice" class="notification--off">
+		El texto no debe contener mayúsculas ni caracteres especiales.
+	</p>
 	<header><h1>Encriptador</h1></header>
 	<main>
 		<div id="leftbox">
-			<textarea id="lefttext" placeholder="Escribe un texto..."></textarea>
-			<input id="encrypt" type="button" value="Encriptar">
-			<input id="decrypt" type="button" value="Desencriptar">
+			<textarea
+				id="lefttext"
+				placeholder="Escribe un texto..."
+			></textarea>
+			<input id="encrypt" class="button" type="button" value="Encriptar">
+			<input
+				id="decrypt"
+				class="button"
+				type="button"
+				value="Desencriptar"
+			>
 		</div>
 		<div id="rightbox">
 			<textarea id="righttext" readonly></textarea>
@@ -25,12 +35,28 @@
 				Ingresa el texto que desees encriptar o desenciptar.
 			</p>
 			<div id="buttons">
-				<input id="copy" type="button">
-				<input id="clear" type="button">
+				<input id="copy" class="button" type="button">
+				<input id="clear" class="button" type="button">
 			</div>
 		</div>
 	</main>
-	<footer><p>Lisandro Verón | 2024</p></footer>
+	<footer>
+		<p>Lisandro Verón | 2024</p>
+		<a
+			class="button"
+			href="https://github.com/lisandroveron"
+			target="_blank"
+		>
+			<img class="button" src="assets/icons/github.svg">
+		</a>
+		<a
+			class="button"
+			href="https://www.linkedin.com/in/lisandroveron"
+			target="_blank"
+		>
+			<img class="button" src="assets/icons/linkedin.svg">
+		</a>
+	</footer>
 	<script type="text/javascript" src="js/index.js"></script>
 	<noscript>Debes habilitar JavaScript para usar esta página.</noscript>
 </body>
