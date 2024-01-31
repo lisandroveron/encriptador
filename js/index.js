@@ -66,7 +66,10 @@ function toggle(element) {
 };
 
 function verify(text, mode) {
-	let error = text.match(/[^a-z0-9\s\n¡!¿?.,:<>]/g);
+	let forbiddenChars = /[^a-z0-9\s\n¡!¿?.,:<>]|^[\s\n]+$/g;
+	let match = text.search(forbiddenChars) >= 0;
+	let error = match ? true : false;
+
 	if (error) {
 		toggle(rulesadvice);
 		return;
