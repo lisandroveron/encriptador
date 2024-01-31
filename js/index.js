@@ -66,7 +66,7 @@ function toggle(element) {
 };
 
 function verify(text, mode) {
-	let error = text.match(/[^a-z0-9\s\n!?.,:]/g);
+	let error = text.match(/[^a-z0-9\s\n¡!¿?.,:<>]/g);
 	if (error) {
 		toggle(rulesadvice);
 		return;

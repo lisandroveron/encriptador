@@ -60,7 +60,7 @@ textarea{
 	transition: .3s linear;
 }
 .notification--on{
-	bottom: calc(100% - 3rem);
+	bottom: 95%;
 }
 #textcopied{
 	background-color: var(--light-green);
@@ -179,11 +179,21 @@ footer .button{
 	main #rightbox #righttext{
 		background-size: contain;
 	}
+	main #rightbox #buttons{
+		bottom: var(--padding);
+		flex-direction: row-reverse;
+		top: auto;
+	}
 	main #rightbox #textnotfound{
 		flex-basis: 1;
-		padding: var(--padding) calc(var(--padding) + var(--icon));
+		padding: var(--padding);
 	}
-	main #rightbox #textnotfound br:last-child{
-/*		display: none;*/
+	.notification--on{
+		bottom: 90%;
+	}
+}
+@media screen and (max-width: 320px){
+	.notification--on{
+		bottom: 85%;
 	}
 }
